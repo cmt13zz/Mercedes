@@ -1,3 +1,14 @@
+// Animation for navbar header
+$(window).scroll(function () {
+  if ($(this).scrollTop() > 90) {
+    $(".header-sticky").addClass("sticky");
+    $(".slider").addClass("no-padding");
+  } else {
+    $(".header-sticky").removeClass("sticky");
+    $(".slider").removeClass("no-padding");
+  }
+});
+
 // Custom for Slider Header
 $(".slider-list").slick({
   slidesToShow: 1,
@@ -66,13 +77,13 @@ $(document).ready(function () {
   $(".project__items1:lt(14)").show();
   var items = 32;
   var shown = 14;
-  $(".loadmore1").click(function () {
+  $(".loadmore").click(function () {
     shown = $(".project__items1:visible").length + 18;
     if (shown < items) {
       $(".project__items1:lt(" + shown + ")").show(300);
     } else {
       $(".project__items1:lt(" + items + ")").show(300);
-      $(".loadmore1").hide();
+      $(".loadmore").hide();
     }
   });
 });
@@ -105,4 +116,7 @@ $(document).ready(function () {
       $(".loadmore3").hide();
     }
   });
+});
+$('a.nav-link-vehicles[data-toggle="tab"]').on("shown.bs.tab", function (e) {
+  document.querySelector(".menuBottom").style.display = "none";
 });
